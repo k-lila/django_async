@@ -14,11 +14,12 @@ from datetime import datetime, timedelta
 
 async def speed_tracker():
     now = datetime.now()
-    speed = 0.03
+    speed = 0.025
     size = 50
     print()
     print()
     print("  speed tracker  ".center(53, "="))
+    print(f"{(now - timedelta(hours=3)).time()}".center(53, " "))
     print()
     print(f" | 0 ms")
     for num in range(0, size):
@@ -26,8 +27,7 @@ async def speed_tracker():
         dif = round(dif.total_seconds() * 1000, 3)
         print(f" | {dif}ms")
         await asyncio.sleep(speed)
-        print
-    print("=" * 53)
+    print(f"  total sec  {(datetime.now() - now).total_seconds()}  ".center(53, "="))
 
 
 async def http_call_async():
